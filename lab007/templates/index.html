@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1>QR Code Generator</h1>
+    
+    <form method="POST">
+        <label for="data">Enter your message:</label>
+        <input type="text" id="data" name="data" required>
+        <button type="submit">Generate QR Code</button>
+    </form>
+
+    {% if qr_code_filename %}
+        <h2>Your Message: {{ message }}</h2>
+        <img src="{{ qr_code_filename }}" alt="QR Code">
+    {% endif %}
+</body>
+</html>
