@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>APOD - History</title>
+</head>
+<body>
+    <h1>Choose a Date</h1>
+    <form method="POST">
+        <input type="date" name="date" min="1995-06-16">
+        <input type="submit" value="Get Apod">
+    </form>
+    {% if error %}
+        <p style="color: red">{{ error }}</p>
+    {% endif %}
+
+    {% if apod %}
+        <h2>{{ apod.date }}</h2>
+        <img src="{{ apod.url }}" alt="APOD image" width="600">
+        <p>{{ apod.explanation }}</p>
+        {% if apod.copyright %}
+        <p><strong>© {{ apod.copyright }}</strong></p>
+        {% endif %}
+    {% endif %}
+    <br>
+    <a href="{{ url_for('index') }}">Back to Today</a>
+</body>
+</html>

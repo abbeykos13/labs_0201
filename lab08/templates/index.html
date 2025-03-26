@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>APOD - Today</title>
+</head>
+<body>
+    <h1>Astronomy Picture of the Day (Today)</h1>
+    <h2>{{ apod.date }}</h2>
+    <img src="{{ apod.url }}" alt="APOD image" width="600">
+    <p>{{ apod.explanation }}</p>
+    {% if apod.copyright %}
+    <p><strong>© {{ apod.copyright }}</strong></p>
+    {% endif %}
+    <br>
+    <a href="{{ url_for('history') }}">View Past Images</a>
+</body>
+</html>
